@@ -1,23 +1,26 @@
-﻿/*Задача 25:**Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-3, 5 -> 243 (3⁵)
-2, 4-> 16*/
-using static System.Console;
-WriteLine("Enter the number A and the number B");
-int a=getIngeger(); 
-int b=getIngeger();
-WriteLine($"The number A={a} to the power of B={b} is: {pow(a,b)}");
+﻿/*
+ Задача 29:** Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+ 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+ 6, 1, 33 -> [6, 1, 33]
+*/
 
-int getIngeger()
+using static System.Console;
+printArrOfLength(8);
+
+
+void printArrOfLength(int Length)
 {
-    ///Write("Enter the number: ");
-    return int.Parse(ReadLine());
-}
-int pow(int a, int b)
-{
-    int result = 1;
-    for (int i = 0; i < b; i++)
+    int[] arr = new int[Length];
+    for (int i = 0; i < Length; i++)
     {
-        result *= a;
+        WriteLine($"Enter the {i+1} array element ");
+        arr[i] = int.Parse(ReadLine());
     }
-    return result;
+    Write("[");
+    for (int i = 0; i < Length; i++)
+    {
+        Write(arr[i]);
+        if (i < arr.Length - 1) Write(", ");
+    }
+    Write("]");
 }
